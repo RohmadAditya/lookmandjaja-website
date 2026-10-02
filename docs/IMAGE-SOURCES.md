@@ -27,3 +27,14 @@ The image is stored locally so the website does not depend on a third-party imag
 - Context: truck traveling on a road
 - Usage: homepage Lacak Pengiriman section background
 - Verification: HTTP 200, image/jpeg
+
+
+## Internal page hero variations
+
+- Profil: https://images.pexels.com/photos/3245123/pexels-photo-3245123.jpeg?auto=compress&cs=tinysrgb&w=2400 — aerial fleet overview
+- Layanan: https://images.pexels.com/photos/5876475/pexels-photo-5876475.jpeg?auto=compress&cs=tinysrgb&w=2400 — truck at loading dock
+- Armada: https://images.pexels.com/photos/20882742/pexels-photo-20882742.jpeg?auto=compress&cs=tinysrgb&w=2400 — truck fleet lineup
+- Lacak Kiriman: https://images.pexels.com/photos/39000646/pexels-photo-39000646.jpeg?auto=compress&cs=tinysrgb&w=2400 — truck on highway
+- Kontak: https://images.pexels.com/photos/37907538/pexels-photo-37907538.jpeg?auto=compress&cs=tinysrgb&w=2400 — loading dock facility
+
+All five URLs were verified with HTTP 200 and image/jpeg content type before integration.
