@@ -18,3 +18,8 @@
 ## WhatsApp form
 
 Submit form kontak diarahkan ke `https://wa.me/6281213283987` dengan seluruh value field dirangkum sebagai pesan. Nomor dapat diganti dari satu lokasi di `js/site.js`.
+
+
+## Contact page benchmark
+
+Halaman Kontak menjadi benchmark visual untuk refinemen halaman lain: hero ringkas dengan satu pesan, palet biru-abu, kartu informasi terang, layout utilitas yang jelas, CTA foto HD, dan motion entry yang halus. Halaman lain akan mengikuti prinsip ini pada iterasi visual berikutnya tanpa menyalin struktur secara mekanis.
