@@ -71,17 +71,17 @@ Website ditujukan untuk calon pelanggan bisnis yang membutuhkan pengiriman kargo
 | Nama publik | Lookman Djaja | Siap digunakan |
 | Entitas profesional | PT Lookman Djaja Logistics | Siap digunakan, cek legal copy sebelum launch |
 | Bisnis | Ekspedisi dan angkutan darat berbasis truk | Siap digunakan |
-| Berdiri | 1985 | Didukung riset dan publikasi industri; minta konfirmasi perusahaan sebelum hero/stat utama |
+| Berdiri | 1985 | Digunakan dalam demo berdasarkan dossier |
 | Rute | Sumatera, Jawa, Bali | Siap digunakan berdasarkan situs perusahaan |
-| Rute tambahan | NTB | Perlu konfirmasi sebelum ditampilkan sebagai cakupan utama |
-| Teknologi | GPS dan Shipment ID | Tampilkan sebagai fitur hanya setelah endpoint dan scope operasional dikonfirmasi |
+| Rute tambahan | NTB | Ditampilkan sebagai rute layanan sesuai keputusan proyek |
+| Teknologi | GPS dan Shipment ID | GPS dapat ditampilkan sebagai kemampuan; tracking interaktif ditunda sampai sistem tersedia |
 | Keamanan | Pengamanan khusus sesuai kebutuhan | Tampilkan sebagai opsi layanan, bukan jaminan universal |
-| Armada resmi | Fuso, Tronton, Super Tronton, Big Mama | Siap digunakan dengan verifikasi spesifikasi akhir |
-| Jumlah armada | Sekitar 250 atau lebih dari 300 | Jangan dipublikasikan; angka resmi terbaru belum terverifikasi |
+| Armada resmi | Fuso, Tronton, Super Tronton, Big Mama | Seluruhnya dipublikasikan dalam demo |
+| Jumlah armada | Sekitar 250 atau lebih dari 300 | Tidak ditampilkan sebagai angka; katalog tipe armada tetap dipublikasikan |
 | CEO | Kyatmaja Lookman | Jangan jadikan elemen utama MVP tanpa persetujuan nama dan foto |
-| Surabaya | Jl. Raya Putat Gede Timur 3; 031-7340245; 031-7340246 | Perlu konfirmasi sebelum launch |
-| Jakarta | Jl. Raya Karang Bolong 4, Ancol, Jakarta Utara; 021-69833201; 021-69833202 | Perlu konfirmasi sebelum launch |
-| Kantor pusat alternatif | Gedung Buncit 36, Ragunan, Jakarta Selatan | Konflik sumber; jangan dipublikasikan sebelum dikonfirmasi |
+| Surabaya | Jl. Raya Putat Gede Timur 3; 031-7340245; 031-7340246 | Dianggap final untuk demo |
+| Jakarta | Jl. Raya Karang Bolong 4, Ancol, Jakarta Utara; 021-69833201; 021-69833202 | Dianggap final untuk demo |
+| Kantor pusat alternatif | Gedung Buncit 36, Ragunan, Jakarta Selatan | Tidak dipakai dalam demo |
 | Tahun footer lama | 2016 | Anggap sebagai sinyal situs lama, jangan dibawa ke desain baru |
 
 ## 7. Nilai Produk dan Pesan Utama
@@ -95,7 +95,7 @@ Website ditujukan untuk calon pelanggan bisnis yang membutuhkan pengiriman kargo
 1. **Pengalaman operasional:** berdiri sejak 1985, setelah dikonfirmasi oleh perusahaan.
 2. **Pilihan kapasitas:** Fuso, Tronton, Super Tronton, dan Big Mama.
 3. **Fleksibilitas muatan:** FTL, LTL, kargo, barang konsumen, serta layanan closed-box dan wingbox food-grade.
-4. **Cakupan rute:** Sumatera, Jawa, Bali, dan rute tambahan sesuai ketersediaan operasional.
+4. **Cakupan rute:** Sumatera, Jawa, Bali, dan NTB sebagai cakupan layanan yang ditampilkan pada demo.
 5. **Kontrol pengiriman:** GPS, Shipment ID, dan pengamanan khusus jika benar-benar tersedia untuk layanan yang dipilih.
 
 ### Gaya bahasa
@@ -203,14 +203,15 @@ Semua angka spesifikasi wajib diberi sumber internal atau approval perusahaan se
 
 - Form minimal: nama, perusahaan, email/telepon, asal, tujuan, jenis muatan, volume/berat, jadwal, dan pesan.
 - Validasi field wajib.
-- Channel submit harus dikonfirmasi: email, CRM, WhatsApp, atau endpoint backend.
-- Jangan mengklaim form tersambung sebelum ada endpoint nyata.
+- Submit form diarahkan ke WhatsApp dengan seluruh value field dibawa sebagai pesan terformat.
+- Nomor WhatsApp bersifat configurable; gunakan nomor kontak utama yang tersedia sebagai target demo sampai nomor WhatsApp bisnis dikonfirmasi.
 
 ### FR-03 — Tracking
 
 - Pengunjung dapat memasukkan Shipment ID.
 - UI menyediakan state kosong, loading, hasil, tidak ditemukan, dan error.
-- Endpoint, autentikasi, rate limit, dan format respons menjadi dependency eksternal.
+- Implementasi API tracking ditunda. MVP hanya menyiapkan UI dan state placeholder tanpa status kiriman palsu.
+- Endpoint, autentikasi, rate limit, dan format respons menjadi dependency fase integrasi berikutnya.
 
 ### FR-04 — Katalog armada
 
@@ -219,12 +220,13 @@ Semua angka spesifikasi wajib diberi sumber internal atau approval perusahaan se
 
 ### FR-05 — Kontak dan lokasi
 
-- Menampilkan hanya alamat dan nomor yang sudah disetujui.
-- Peta memakai alamat final, bukan hasil asumsi dari sumber yang konflik.
+- Menampilkan alamat dan nomor kantor dari dossier sebagai data final demo.
+- Peta memakai alamat Surabaya dan Jakarta Ancol.
 
 ### FR-06 — Konten dan aset
 
-- Logo dan foto resmi dipakai hanya setelah izin publikasi dikonfirmasi.
+- Logo dan foto resmi boleh dipakai untuk website demo sesuai keputusan proyek.
+- Jika website berubah menjadi publik/komersial, hak publikasi harus dikonfirmasi ulang.
 - Alt text wajib tersedia.
 - Setiap gambar memiliki width dan height untuk mencegah layout shift.
 
@@ -259,6 +261,33 @@ Semua angka spesifikasi wajib diberi sumber internal atau approval perusahaan se
 - CTA penutup konsisten.
 - Footer multi-kolom yang ringkas.
 
+
+## 13A. Frontend Blueprint
+
+Frontend akan dibangun sebagai website company profile industrial yang kuat secara visual, bukan landing page generik. Logo resmi menjadi anchor identitas; warna utama memakai royal blue dan navy dari logo, dengan abu-abu metalik, putih, dan abu-abu terang sebagai bidang kerja. Foto resmi dipakai dalam crop lebar pada hero/profile dan dalam rasio terkendali pada katalog layanan serta armada.
+
+### Sistem layout
+
+- Header sticky dengan wordmark kiri, navigasi enam halaman, dan CTA `Minta Penawaran`.
+- Hero halaman memakai komposisi split atau full-bleed dengan overlay navy, headline besar, subcopy pendek, dan maksimal dua CTA.
+- Section memakai ritme editorial: satu statement besar, bukti/angka, kartu operasional, lalu CTA.
+- Kartu armada tidak memakai grid padat; setiap tipe mendapat identitas visual, spesifikasi utama, kapasitas, dan penggunaan yang disarankan.
+- CTA penutup dibuat konsisten di seluruh halaman dengan background foto operasional dan hierarchy jelas.
+- Mobile memakai satu kolom, CTA full width, sticky header ringkas, dan tabel spesifikasi yang berubah menjadi kartu.
+
+### Arah visual halaman
+
+- **Beranda:** hero kuat, trust strip, layanan inti, preview armada, rute, proses kerja, form/CTA WhatsApp.
+- **Profil:** narasi sejarah sejak 1985, foto profil, koridor layanan, kemampuan operasional, dan nilai keamanan.
+- **Layanan:** FTL/LTL sebagai dua jalur utama, lalu kargo konsumen, closed-box, wingbox food-grade, dan penjelasan ritase.
+- **Armada:** katalog empat tipe dengan angka volume/tonase yang menonjol dan foto resmi sebagai elemen pendukung.
+- **Tracking:** halaman utilitas dengan input Shipment ID, tetapi status integrasi diberi label `segera tersedia` sampai API diberikan.
+- **Kontak:** dua lokasi final, telepon, form inquiry, peta, dan CTA WhatsApp dengan payload field.
+
+### Form inquiry
+
+Field minimal: nama, perusahaan, telepon/email, kota asal, kota tujuan, jenis muatan, volume/berat, jadwal, dan pesan. Submit melakukan validasi browser lalu membuka WhatsApp dengan pesan terformat yang membawa seluruh value input. Nomor tujuan dipisahkan sebagai token konfigurasi agar mudah diganti ketika nomor WhatsApp resmi dikonfirmasi.
+
 ## 14. Aset Resmi yang Tersedia
 
 Arsip aset disimpan di `assets/official/` dan berasal dari situs resmi perusahaan. Inventaris rinci ada di `docs/ASSET-INVENTORY.md`.
@@ -269,35 +298,28 @@ Arsip aset disimpan di `assets/official/` dan berasal dari situs resmi perusahaa
 - `service-01.jpg` sampai `service-02.jpg` — foto layanan operasional.
 - `truck-01.jpg` sampai `truck-04.jpg` — foto katalog armada.
 
-**Gate hak aset:** arsip menyebut penggunaan untuk riset/internal dan hak publikasi ulang, komersial, atau pengubahan belum diverifikasi. Website produksi tidak boleh dipublikasikan sebelum izin pemegang hak dikonfirmasi.
+**Status aset demo:** aset resmi digunakan untuk kebutuhan demo proyek. Untuk publikasi komersial atau launch resmi, hak penggunaan tetap perlu dikonfirmasi ulang.
 
 ## 15. Dependency dan Pertanyaan Terbuka
 
-1. Apakah perusahaan menyetujui penggunaan 11 aset resmi ini untuk website baru?
-2. Alamat final kantor Jakarta yang benar yang mana: Ancol atau Gedung Buncit 36?
-3. Apakah alamat Surabaya dan seluruh nomor telepon masih aktif?
-4. Berapa jumlah armada terbaru yang boleh dipublikasikan?
-5. Apakah rute NTB aktif dan boleh disebutkan sebagai cakupan resmi?
-6. Apa endpoint dan format API Shipment ID?
-7. Apakah tracking publik membutuhkan autentikasi, captcha, atau rate limit?
-8. Ke mana form permintaan penawaran dikirim?
-9. Email bisnis resmi yang harus ditampilkan apa?
-10. Apakah WhatsApp bisnis resmi tersedia?
-11. Apakah nama dan foto Kyatmaja Lookman boleh ditampilkan?
-12. Apakah ada dokumen resmi tentang SOP keselamatan, GPS, food-grade, atau pengamanan khusus?
-13. Apakah website membutuhkan dua bahasa?
-14. Domain, hosting, analytics, dan akses deployment yang akan digunakan apa?
+1. Apa endpoint dan format API Shipment ID untuk fase integrasi berikutnya?
+2. Apakah nomor telepon utama yang tersedia dapat menerima WhatsApp?
+3. Email resmi belum tercantum dalam dossier; sediakan sebelum launch jika ingin ditampilkan.
+4. Apakah nama dan foto Kyatmaja Lookman boleh ditampilkan?
+5. Apakah ada dokumen resmi tentang SOP keselamatan, GPS, food-grade, atau pengamanan khusus?
+6. Apakah website membutuhkan dua bahasa?
+7. Domain, hosting, analytics, dan akses deployment yang akan digunakan apa?
 
 ## 16. Acceptance Criteria MVP
 
 - [ ] Enam halaman utama tersedia dan memiliki navigasi konsisten.
 - [ ] Setiap halaman memiliki satu H1, title unik, meta description, dan CTA.
-- [ ] Semua fakta yang belum dikonfirmasi ditandai di konten internal dan tidak muncul sebagai klaim final.
+- [ ] Konten demo mengikuti keputusan bisnis terbaru dan tidak menampilkan angka total armada yang belum pasti.
 - [ ] Katalog empat tipe armada menampilkan data volume, tonase, dan tipe box yang disetujui.
-- [ ] Tracking UI memiliki seluruh state tanpa data palsu.
-- [ ] Form inquiry memiliki validasi dan channel submit yang benar-benar dikonfigurasi.
-- [ ] Alamat, telepon, email, dan peta sudah disetujui perusahaan.
-- [ ] Aset resmi memiliki izin penggunaan tertulis.
+- [ ] Tracking UI memiliki seluruh state tanpa data palsu dan diberi label integrasi menyusul.
+- [ ] Form inquiry tervalidasi dan mengarah ke WhatsApp dengan seluruh value field.
+- [ ] Alamat dan telepon demo memakai data dossier; email tidak ditampilkan sampai alamat email resmi tersedia.
+- [ ] Aset resmi tersedia untuk demo; status hak komersial dicatat sebelum launch publik.
 - [ ] QA responsif lulus pada 375, 768, 1024, dan 1280 piksel.
 - [ ] Tidak ada broken link, gambar gagal, overflow horizontal, atau error console.
 - [ ] Lighthouse/measurement baseline dicatat sebelum launch.
