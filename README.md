@@ -4,11 +4,11 @@ PRD dan fondasi proyek redesign website company profile untuk PT Lookman Djaja L
 
 ## Status
 
-- Fase: discovery dan product requirements
+- Fase: frontend multipage prototype
 - Dokumen utama: `docs/PRD.md`
 - Inventaris aset: `docs/ASSET-INVENTORY.md`
-- Implementasi frontend belum dimulai
-- Data alamat, jumlah armada, endpoint tracking, channel form, dan izin publikasi aset masih menunggu konfirmasi
+- Homepage dan multipage frontend prototype sudah tersedia
+- Tracking API masih ditunda; form inquiry mengarah ke WhatsApp dengan value form
 
 ## Struktur saat ini
 
@@ -38,3 +38,12 @@ Aset resmi diarsipkan untuk riset/internal. Jangan mempublikasikan aset sebelum 
 ## Menjalankan tahap berikutnya
 
 Setelah PRD disetujui dan data terbuka dikonfirmasi, tahap berikutnya adalah membuat design system, struktur HTML/CSS/JS, lalu membangun halaman MVP secara bertahap.
+
+
+## Preview lokal
+
+```bash
+python3 -m http.server 8021
+```
+
+Halaman: `index.html`, `profil.html`, `layanan.html`, `armada.html`, `tracking.html`, `kontak.html`.
