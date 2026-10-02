@@ -103,3 +103,6 @@ html.js .hero-copy,html.js .hero-media,html.js .stats-grid div,html.js .profile-
 
 /* homepage-tablet-grid-fix */
 .home-fleet-grid .fleet-catalog-card,.home-fleet-grid .fleet-catalog-copy{min-width:0}.home-review-section .service-reviews-track{min-width:0;max-width:100%}
+
+/* homepage-section-cta-bright */
+.home-section-cta{background:#d8e9ff;border-color:#d8e9ff;color:var(--navy);box-shadow:0 8px 20px rgba(11,30,56,.08)}.home-section-cta:hover{background:var(--white);border-color:var(--white);color:var(--navy);transform:translateY(-2px)}.home-section-cta span{color:inherit}
