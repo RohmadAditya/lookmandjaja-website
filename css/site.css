@@ -142,3 +142,6 @@ html.js .hero-copy,html.js .hero-media,html.js .stats-grid div,html.js .profile-
 /* homepage-about-simple */
 .home-about-section{background:var(--white);padding-block:88px}.home-about-section .home-section-grid{gap:90px}.home-about-section .home-section-grid>div:first-child{padding:0;background:transparent;border-left:0;overflow:visible}.home-about-section .home-section-grid>div:first-child::after{display:none}.home-about-section .home-section-grid>div:first-child .eyebrow{color:var(--blue)}.home-about-section .home-section-grid>div:first-child h2{color:var(--ink)}.home-about-tag{margin-top:20px;color:var(--blue);font-size:.74rem;letter-spacing:.09em}.home-about-section .section-copy{padding-top:14px}
 @media(max-width:767px){.home-about-section{padding-block:64px}.home-about-section .home-section-grid{gap:24px}}
+
+/* homepage-services-fourth-hover */
+.home-services-grid .service-catalog-card:nth-child(4):hover{background:var(--navy);border-color:var(--navy);border-top-color:var(--blue-bright);color:var(--white);transform:translateY(-5px);box-shadow:var(--shadow)}.home-services-grid .service-catalog-card:nth-child(4):hover h3{color:var(--white)}.home-services-grid .service-catalog-card:nth-child(4):hover p{color:rgba(255,255,255,.72)}.home-services-grid .service-catalog-card:nth-child(4):hover>span{color:var(--blue-bright)}
